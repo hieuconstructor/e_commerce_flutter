@@ -5,7 +5,7 @@ import '../size_config.dart';
 
 class DefaultButton extends StatelessWidget {
   const DefaultButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
   });
@@ -16,15 +16,15 @@ class DefaultButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: getProportionateScreenWidth(200),
-      height: getProportionateScreenHeight(30),
+      width: double.infinity,
+      height: getProportionateScreenHeight(56),
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(kPrimaryColor),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0),
+              borderRadius: BorderRadius.circular(19.0),
             ),
           ),
         ),

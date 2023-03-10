@@ -1,11 +1,8 @@
 import 'package:e_commerce_flutter/components/no_account_text.dart';
-import 'package:e_commerce_flutter/constants.dart';
-import 'package:e_commerce_flutter/screen/forgot_password/forgot_password_screen.dart';
 import 'package:e_commerce_flutter/screen/sign_in/components/sign_form.dart';
 import 'package:e_commerce_flutter/components/socal_card.dart';
 import 'package:e_commerce_flutter/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});

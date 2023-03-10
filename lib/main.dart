@@ -1,5 +1,4 @@
 import 'package:e_commerce_flutter/routs.dart';
-import 'package:e_commerce_flutter/screen/sign_in/sign_in_screen.dart';
 import 'package:e_commerce_flutter/theme.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: theme(),
-      initialRoute: SignInScreen.routeName,
+      initialRoute: SplashScreen.routeName,
       routes: routes,
     );
   }

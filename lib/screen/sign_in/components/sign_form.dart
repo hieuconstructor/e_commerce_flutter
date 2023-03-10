@@ -1,3 +1,5 @@
+import 'package:e_commerce_flutter/screen/forgot_password/forgot_password_screen.dart';
+import 'package:e_commerce_flutter/screen/login_success/login_success_screen.dart';
 import 'package:e_commerce_flutter/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -45,9 +47,13 @@ class SignFormState extends State<SignForm> {
               ),
               Text('Remember me'),
               Spacer(),
-              Text(
-                "Forgot Password",
-                style: TextStyle(decoration: TextDecoration.underline),
+              GestureDetector(
+                onTap: () => Navigator.popAndPushNamed(
+                    context, ForgotPasswordScreen.routeName),
+                child: const Text(
+                  "Forgot Password",
+                  style: TextStyle(decoration: TextDecoration.underline),
+                ),
               ),
             ],
           ),
@@ -61,6 +67,8 @@ class SignFormState extends State<SignForm> {
                 // If the form is valid, display a snackbar. In the real world,
                 // you'd often call a server or save the information in a database.
                 _formKey.currentState!.save();
+                Navigator.popAndPushNamed(
+                    context, LoginSuccessScreen.routeName);
               }
             },
           )
@@ -84,7 +92,7 @@ class SignFormState extends State<SignForm> {
             errors.remove(kInvalidEmailError);
           });
         }
-        return null;
+        return;
       },
       validator: (value) {
         if (value == null ||
@@ -92,11 +100,13 @@ class SignFormState extends State<SignForm> {
           setState(() {
             errors.add(kEmailNullError);
           });
+          return "";
         } else if (!emailValidatorRegExp.hasMatch(value) &&
             !errors.contains(kInvalidEmailError)) {
           setState(() {
             errors.add(kInvalidEmailError);
           });
+          return "";
         }
         return null;
       },
@@ -125,7 +135,7 @@ class SignFormState extends State<SignForm> {
             errors.remove(kShortPassError);
           });
         }
-        return null;
+        return;
       },
       validator: (value) {
         if (value == null ||
@@ -133,10 +143,12 @@ class SignFormState extends State<SignForm> {
           setState(() {
             errors.add(kPassNullError);
           });
+          return "";
         } else if (value.length < 8 && !errors.contains(kShortPassError)) {
           setState(() {
             errors.add(kShortPassError);
           });
+          return "";
         }
         return null;
       },
